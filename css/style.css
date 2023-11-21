@@ -1,0 +1,254 @@
+/* start global rules */
+/* import font */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600&family=Josefin+Sans:wght@200;300;400;500;600;700&family=Poppins:wght@200;300;400;500;600;700&family=Roboto:wght@100;300;400;500&family=Tajawal:wght@200;300;400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  --main-color: #88abff;
+}
+
+body {
+  background-color: var(--main-color);
+
+}
+
+/* end  global rules */
+
+.wrapper {
+  margin: 40px 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  gap: 15px;
+  justify-content: center;
+}
+
+.wrapper div {
+  list-style: none;
+  height: 298px;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.wrapper .add-box {
+  min-height: 270px;
+}
+
+
+
+.wrapper .add-box,
+.add-box .icon,
+.wrapper .note {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.wrapper .add-box {
+  align-items: center;
+}
+
+.wrapper .add-box .icon {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 2px dashed var(--main-color);
+  font-size: 35px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.wrapper .add-box p {
+  color: var(--main-color);
+  font-weight: 500;
+  margin-top: 15px;
+  font-size: 22px;
+}
+
+
+
+.wrapper .note .details {
+  padding-bottom: 20px;
+  max-height: 230px;
+  overflow-y: auto;
+}
+
+.wrapper .note p {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.wrapper .note span {
+  display: block;
+  margin-top: 15px;
+  color: #575757;
+  font-size: 16px;
+}
+
+.wrapper .note .bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 2px solid #ccc;
+
+}
+
+.note .bottom-content span {
+  color: #6d6d6d;
+  font-size: 14px;
+}
+
+.note .bottom-content .settings i {
+  color: #6d6d6d;
+  font-size: 18px;
+  cursor: pointer;
+  transform: translateY(8px);
+}
+
+.bottom-content .settings {
+  position: relative;
+}
+
+.bottom-content .settings .menu {
+  position: absolute;
+  bottom: -70px;
+  right: -5px;
+  border-radius: 5px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+  padding: 5px 0;
+  background-color: #fff;
+  transform: scale(0);
+  transition: 0.2s;
+  transform-origin: top right;
+}
+
+.settings.show .menu {
+  transform: scale(1);
+}
+
+.settings .menu li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 0;
+  font-size: 16px;
+  padding: 17px 15px;
+}
+
+.settings .menu li:hover {
+  background-color: #f5f5f5;
+}
+
+.bottom-content .settings .menu li i {
+  padding-right: 10px;
+  transform: translateY(0px);
+}
+
+.popup-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup-box .popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  max-width: 400px;
+  width: 100%;
+}
+
+.popup-box {
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.popup-box.show,
+.popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-box .popup .content {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.popup .content header {
+  border-bottom: 2px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.popup .content header i {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup .content header p {
+  font-size: 20px;
+}
+
+.content form label {
+  font-size: 20px;
+}
+
+.content .title,
+.content .description {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 10px;
+}
+
+.content .title input {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  font-size: 22px;
+  padding: 5px;
+  outline: none;
+}
+
+.content .description textarea {
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  font-size: 17px;
+  padding: 5px;
+  outline: none;
+  min-height: 220px;
+  max-height: 400px;
+}
+
+.content form button {
+  margin-top: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+  background-color: var(--main-color);
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 500;
+  color: #fff;
+}
